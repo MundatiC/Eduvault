@@ -1,9 +1,30 @@
 const express = require('express');
 require('dotenv').config();
 
+const webhookRouter = require('./src/routes/webhookRoute');
+
 const app = express();
 
 app.use(express.json());
+
+app.get(
+  "/",
+  (req, res, next) => {
+    let cont = true;
+    if (cont) {
+      console.log("Hello from the middleware");
+      next();
+    } else {
+      res.send("Error logged from middleware");
+    }
+  },
+  (req, res) => {
+
+    res.send("Ok")
+  }
+);
+
+app.use(webhookRouter)
 
 app.use("*", (req, res, next) => {
     const error = new Error("Route Not found");

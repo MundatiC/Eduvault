@@ -18,34 +18,43 @@ This project is a web application for managing users and integrating with Tally 
 
 ### User Management Endpoints
 
-#### GET /users
+#### Retrieve All Users
 
 - **Description**: Retrieves a list of all users.
+- **Endpoint**: `GET /users`
 - **Request Parameters**: None
-- **Response**: 
+- **Response**:
   - **Status Code**: 200 OK
   - **Body**: Array of user objects
+- **Usage**: Send a GET request to `/users` to retrieve the list of users.
 
-#### POST /users
+#### Create New User
 
 - **Description**: Creates a new user.
+- **Endpoint**: `POST /users`
 - **Request Body**: JSON object containing user data (id, first_name, last_name, email, gender, date_of_birth)
 - **Response**:
-  - **Status Code**: 200 OK if successful, 500 Internal Server Error if an error occurs
+  - **Status Code**: 
+    - 200 OK if successful
+    - 500 Internal Server Error if an error occurs
+- **Usage**: Send a POST request to `/users` with the user data in the request body to create a new user.
 
-#### GET /users/:id
+#### Retrieve User by ID
 
 - **Description**: Retrieves a user by ID.
+- **Endpoint**: `GET /users/:id`
 - **Request Parameters**: User ID
 - **Response**:
   - **Status Code**: 200 OK
   - **Body**: User object
+- **Usage**: Send a GET request to `/users/:id` to retrieve a specific user by their ID.
 
 ### Webhook Endpoint
 
-#### POST /webhook
+#### Receive Tally Webhook Payload
 
 - **Description**: Receives webhook payloads from Tally forms.
+- **Endpoint**: `POST /webhook`
 - **Request Headers**: 
   - `tally-signature`: Signature for verifying the source of the webhook payload
 - **Request Body**: JSON object containing form data
@@ -54,6 +63,7 @@ This project is a web application for managing users and integrating with Tally 
     - 200 OK if successful
     - 401 Unauthorized if the signature verification fails
     - 500 Internal Server Error if an error occurs during processing
+- **Usage**: Tally will send a POST request to `/webhook` with the form data. The server will validate the signature and process the payload accordingly.
 
 ## Database Schema
 

@@ -8,5 +8,9 @@
     "start": "nodemon server.js"
   },
   "author": "MundatiC",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mssql": "^10.0.2",
+    "zoo-ids": "^2.0.7"
+  }
 }

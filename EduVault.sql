@@ -1,9 +1,9 @@
 CREATE TABLE [Students] (
-  [id] VARCHAR PRIMARY KEY,
-  [first_name] VARCHAR,
-  [last_name] VARCHAR,
-  [email] VARCHAR,
-  [gender] VARCHAR,
+  [id] VARCHAR(50) PRIMARY KEY UNIQUE,
+  [first_name] VARCHAR(50),
+  [last_name] VARCHAR(50),
+  [email] VARCHAR(100) UNIQUE,
+  [gender] VARCHAR(10),
   [date_of_birth] DATE
 )
 GO

@@ -1,4 +1,4 @@
-# Project Title
+# EduVault
 
 This project is a web application for managing users and integrating with Tally for data storage and retrieval. It includes front-end functionality, an API for user management, integration with Tally for data storage using webhooks, and an export functionality.
 

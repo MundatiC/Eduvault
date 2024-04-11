@@ -1,13 +1,20 @@
 const express = require('express');
+const cors = require("cors");
 require('dotenv').config();
 const sql = require("mssql");
 const config = require("./src/config/config");
 
 const webhookRouter = require('./src/routes/webhookRoute');
+const userRouter = require('./src/routes/userRoutes');
 
 const app = express();
 
 app.use(express.json());
+app.use(cors({
+  origin:'http://localhost:3001', 
+  credentials:true,       
+  optionSuccessStatus:200
+}))
 
 async function ConnectToDB() {
   try {
@@ -34,6 +41,7 @@ async function ConnectToDB() {
     );
     
     app.use(webhookRouter)
+    app.use(userRouter)
     
     app.use("*", (req, res, next) => {
         const error = new Error("Route Not found");

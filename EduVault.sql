@@ -33,14 +33,6 @@ CREATE TABLE [SPIGRIT] (
 )
 GO
 
-CREATE TABLE [Tally] (
-  [id] uniqueidentifier PRIMARY KEY,
-  [student_id] VARCHAR,
-  [form_name] VARCHAR,
-  [form_response] NVARCHAR(MAX),
-  [form_date] DATE
-)
-GO
 
 CREATE TABLE [Assessments] (
   [id] uniqueidentifier PRIMARY KEY,
